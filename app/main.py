@@ -6,7 +6,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()  # carica .env se presente, senza sovrascrivere variabili già impostate
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
@@ -167,16 +167,24 @@ def interrupt(session_id: str) -> dict:
 
 
 @app.get("/session/{session_id}/events")
-def events(
+async def events(
+    request: Request,
     session_id: str,
     run_id: str | None = Query(default=None),
     after: int = Query(default=0),
 ):
     try:
-        stream = _service.stream_events(session_id=session_id, run_id=run_id, after=after)
-        return StreamingResponse(stream, media_type="text/event-stream")
+        _service.get_session(session_id)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+    async def _guarded():
+        async for chunk in _service.stream_events(session_id=session_id, run_id=run_id, after=after):
+            if await request.is_disconnected():
+                break
+            yield chunk
+
+    return StreamingResponse(_guarded(), media_type="text/event-stream")
 
 
 @app.get("/session/{session_id}")

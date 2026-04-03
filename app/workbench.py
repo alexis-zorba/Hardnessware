@@ -239,10 +239,12 @@ class WorkbenchService:
                     **event,
                 })
         # Sort by run order then local position — stable and independent of wall-clock drift
-        raw.sort(key=lambda e: (run_order.get(e["run_id"], 99999), e.pop("_local", 0)))
-        # Assign global sequential index after sorting and filter
+        # Use get() not pop() here: removing _local is done below to avoid sort side effects
+        raw.sort(key=lambda e: (run_order.get(e["run_id"], 99999), e.get("_local", 0)))
+        # Assign global sequential index, strip temp field, filter
         result = []
         for global_idx, event in enumerate(raw):
+            event.pop("_local", None)
             event["index"] = global_idx
             if global_idx >= after:
                 result.append(event)
@@ -359,6 +361,13 @@ class WorkbenchService:
         }
 
     def import_session(self, data: dict[str, Any]) -> SessionState:
+        if not isinstance(data, dict):
+            raise ValueError("Invalid session data: expected a JSON object")
+        messages = data.get("messages", [])
+        if not isinstance(messages, list):
+            raise ValueError("Invalid session data: messages must be a list")
+        if len(messages) > 500:
+            raise ValueError(f"Too many messages to import: {len(messages)} (max 500)")
         workspace = data.get("workspace", ".")
         provider = data.get("provider", "openrouter")
         model = data.get("model", "minimax/minimax-m2.7")

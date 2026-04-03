@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8000";
+// Dev: default to localhost backend. Prod build: relative URL (same-origin, reverse-proxy friendly).
+// Override either way with VITE_API_BASE in frontend/.env
+const API_BASE = import.meta.env.VITE_API_BASE
+  ?? (import.meta.env.DEV ? "http://127.0.0.1:8000" : "");
 
 function formatLiveEvent(event) {
   const p = event.payload ?? {};
