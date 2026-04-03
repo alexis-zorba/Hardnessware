@@ -1,6 +1,60 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 
 const API_BASE = "http://127.0.0.1:8000";
+
+function formatLiveEvent(event) {
+  const p = event.payload ?? {};
+  const t = p.turn != null ? `[T${p.turn}] ` : "";
+  switch (event.kind) {
+    case "run_started":
+      return { label: "START", text: (p.task ?? "").slice(0, 120), cls: "ev-start" };
+    case "provider_response":
+      return {
+        label: "LLM",
+        text: `${t}${p.tool_calls ?? 0} call(s) · ${p.usage?.total_tokens ?? "?"}tok · ${p.finish_reason ?? ""}`,
+        cls: "ev-llm",
+      };
+    case "tool_selected": {
+      const args = Object.entries(p.arguments ?? {})
+        .map(([k, v]) => `${k}=${JSON.stringify(v).slice(0, 60)}`)
+        .join(", ");
+      return { label: "CALL", text: `${t}${p.tool ?? "?"}(${args})`, cls: "ev-call" };
+    }
+    case "tool_executed": {
+      const ok = p.success !== false;
+      const preview = (p.content ?? "").slice(0, 120);
+      return { label: ok ? "OK" : "ERR", text: `${t}${p.name ?? ""}: ${preview}`, cls: ok ? "ev-ok" : "ev-err" };
+    }
+    case "py_check_result":
+      return {
+        label: p.ok ? "PY✓" : "PY✗",
+        text: `${t}${p.path ?? ""} ${p.ok ? "" : "— " + (p.detail ?? "").slice(0, 80)}`,
+        cls: p.ok ? "ev-ok" : "ev-err",
+      };
+    case "write_verified":
+      return { label: p.verified ? "WRITE✓" : "WRITE✗", text: `${t}${p.path ?? ""}`, cls: p.verified ? "ev-ok" : "ev-warn" };
+    case "stop_decision":
+      return { label: "STOP", text: `${t}${p.reason ?? ""} (${p.source ?? "loop"})`, cls: "ev-stop" };
+    case "run_completed":
+      return {
+        label: "DONE",
+        text: `${p.metrics?.turns ?? "?"}T · ${p.stop_reason ?? ""} · ${(p.final_text ?? "").slice(0, 80)}`,
+        cls: "ev-done",
+      };
+    case "memory_retrieved":
+      return { label: "MEM", text: `${t}${p.notes ?? 0} notes · ${p.session_messages ?? 0} msgs`, cls: "ev-meta" };
+    case "routing_decision":
+      return { label: "ROUTE", text: JSON.stringify(p).slice(0, 80), cls: "ev-meta" };
+    case "verification_completed":
+      return { label: "VERIFY", text: `${p.promoted_notes ?? 0} notes promoted`, cls: "ev-meta" };
+    case "provider_error":
+      return { label: "ERR", text: `${t}${p.error ?? ""}`, cls: "ev-err" };
+    case "clarification_requested":
+      return { label: "CLARIFY", text: p.question ?? "", cls: "ev-warn" };
+    default:
+      return { label: event.kind.toUpperCase().slice(0, 8), text: JSON.stringify(p).slice(0, 100), cls: "ev-meta" };
+  }
+}
 
 async function api(path, init) {
   const response = await fetch(`${API_BASE}${path}`, {
@@ -38,6 +92,7 @@ export function App() {
   // Prevents SSE/polling from overriding status during an active run
   const activeRunRef = useRef(false);
   const loadInputRef = useRef(null);
+  const liveScrollRef = useRef(null);
 
   const hasSession = Boolean(sessionId);
 
@@ -80,6 +135,23 @@ export function App() {
       return `${ts} | ${kind}${run}`;
     });
   }, [events]);
+
+  // Live events: last 40 of the most recent run_id
+  const liveEvents = useMemo(() => {
+    if (!events.length) return [];
+    const lastRunId = events[events.length - 1].run_id;
+    const filtered = lastRunId
+      ? events.filter((e) => e.run_id === lastRunId)
+      : events;
+    return filtered.slice(-40);
+  }, [events]);
+
+  // Auto-scroll live stream to bottom on new events
+  useEffect(() => {
+    if (liveScrollRef.current) {
+      liveScrollRef.current.scrollTop = liveScrollRef.current.scrollHeight;
+    }
+  }, [liveEvents]);
 
   async function refreshSessionStatus() {
     if (!sessionId || activeRunRef.current) return;
@@ -420,8 +492,30 @@ export function App() {
             ) : null}
           </section>
 
-          <section className="card activity-stream">
-            <h2>Activity Stream</h2>
+          <section className="card live-stream">
+            <div className="live-header">
+              <h2>Live Stream</h2>
+              {sessionStatus === "running" && <span className="live-dot" />}
+            </div>
+            <div className="live-events" ref={liveScrollRef}>
+              {liveEvents.length ? (
+                liveEvents.map((event, idx) => {
+                  const { label, text, cls } = formatLiveEvent(event);
+                  return (
+                    <div key={idx} className={`live-event ${cls}`}>
+                      <span className="live-label">{label}</span>
+                      <span className="live-text">{text}</span>
+                    </div>
+                  );
+                })
+              ) : (
+                <span className="live-idle">Waiting for events…</span>
+              )}
+            </div>
+          </section>
+
+          <section className="card activity-log">
+            <h2>Activity Log</h2>
             <pre>{eventLines.join("\n") || "No events yet."}</pre>
           </section>
         </div>
