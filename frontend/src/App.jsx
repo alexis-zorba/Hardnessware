@@ -139,22 +139,15 @@ export function App() {
     });
   }, [events]);
 
-  // Live events: last 40 of the most recent run_id
+  // Live events: last 40 of the most recent run_id, newest first
   const liveEvents = useMemo(() => {
     if (!events.length) return [];
     const lastRunId = events[events.length - 1].run_id;
     const filtered = lastRunId
       ? events.filter((e) => e.run_id === lastRunId)
       : events;
-    return filtered.slice(-40);
+    return filtered.slice(-40).reverse();
   }, [events]);
-
-  // Auto-scroll live stream to bottom on new events
-  useEffect(() => {
-    if (liveScrollRef.current) {
-      liveScrollRef.current.scrollTop = liveScrollRef.current.scrollHeight;
-    }
-  }, [liveEvents]);
 
   async function refreshSessionStatus() {
     if (!sessionId || activeRunRef.current) return;
@@ -509,7 +502,7 @@ export function App() {
               <h2>Live Stream</h2>
               {sessionStatus === "running" && <span className="live-dot" />}
             </div>
-            <div className="live-events" ref={liveScrollRef}>
+            <div className="live-events">
               {liveEvents.length ? (
                 liveEvents.map((event, idx) => {
                   const { label, text, cls } = formatLiveEvent(event);
