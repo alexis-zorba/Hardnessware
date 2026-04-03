@@ -1,6 +1,6 @@
 # Hardnessware
 
-Provider-agnostic agent harness implemented in Python 3.
+Provider-agnostic agent harness implemented in Python 3.11+.
 Orchestrate multi-step LLM tasks with a disciplined loop, tool safety, memory, and a live workbench UI.
 
 ## Features

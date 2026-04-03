@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -36,10 +37,16 @@ class ReplyRequest(BaseModel):
     content: str = Field(min_length=1)
 
 
+_allowed_origins = [
+    o.strip()
+    for o in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
+    if o.strip()
+]
+
 app = FastAPI(title="HARDNESS Workbench API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

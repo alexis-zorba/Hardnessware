@@ -245,7 +245,7 @@ class WorkbenchService:
 
     def list_files(self, path: str = ".", recursive: bool = False) -> list[dict[str, Any]]:
         target = (self.workspace_root / path).resolve()
-        if not str(target).startswith(str(self.workspace_root)):
+        if not target.is_relative_to(self.workspace_root):
             raise ValueError("Requested path is outside workspace root")
         if not target.exists():
             raise FileNotFoundError(f"Path not found: {path}")
@@ -265,7 +265,7 @@ class WorkbenchService:
     def get_diff(self, session_id: str, path: str) -> dict[str, Any]:
         state = self.get_session(session_id)
         target = (self.workspace_root / path).resolve()
-        if not str(target).startswith(str(self.workspace_root)):
+        if not target.is_relative_to(self.workspace_root):
             raise ValueError("Requested path is outside workspace root")
         if not target.exists() or not target.is_file():
             raise FileNotFoundError(f"File not found: {path}")
