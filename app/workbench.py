@@ -11,6 +11,7 @@ from uuid import uuid4
 
 from hardness.agent import AgentLoop
 from hardness.config import HardnessConfig, ProviderConfig, RuntimeConfig
+from hardness.state_store import StateStore
 from hardness.types import Message
 
 
@@ -117,14 +118,16 @@ class WorkbenchService:
             Message(role=str(entry.get("role", "user")), content=str(entry.get("content", "")))
             for entry in state.messages[-10:]
         ]
+        # Pre-register run_id so the SSE stream can find events during execution
+        run_id = StateStore.new_run_id()
+        state.run_ids.append(run_id)
+
         result = AgentLoop(config).run(
             task,
             session_messages=session_context,
             should_interrupt=lambda: state.interrupt_requested,
+            run_id=run_id,
         )
-        run_id = str(result.get("run_id", ""))
-        if run_id:
-            state.run_ids.append(run_id)
         state.latest_result = result
         self.post_message(session_id, "assistant", str(result.get("final_text", "")))
         self._update_state_from_result(state, result)

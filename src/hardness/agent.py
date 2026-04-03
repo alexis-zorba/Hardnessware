@@ -37,8 +37,9 @@ class AgentLoop:
         task: str,
         session_messages: list[Message] | None = None,
         should_interrupt: Callable[[], bool] | None = None,
+        run_id: str | None = None,
     ) -> dict[str, Any]:
-        run_id = self.store.create_run(task)
+        run_id = self.store.create_run(task, run_id=run_id)
         metrics = RunMetrics()
         self._event(run_id, "run_started", {"task": task})
         if session_messages:

@@ -18,8 +18,13 @@ class StateStore:
         self.notes_root.mkdir(parents=True, exist_ok=True)
         self.artifacts_root.mkdir(parents=True, exist_ok=True)
 
-    def create_run(self, task: str) -> str:
-        run_id = datetime.now(UTC).strftime("run-%Y%m%dT%H%M%S%fZ")
+    @staticmethod
+    def new_run_id() -> str:
+        return datetime.now(UTC).strftime("run-%Y%m%dT%H%M%S%fZ")
+
+    def create_run(self, task: str, run_id: str | None = None) -> str:
+        if run_id is None:
+            run_id = self.new_run_id()
         payload = {
             "run_id": run_id,
             "task": task,
