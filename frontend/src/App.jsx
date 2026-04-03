@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8000";
 
 function formatLiveEvent(event) {
   const p = event.payload ?? {};
@@ -359,16 +359,25 @@ export function App() {
       setEvents([]);
       setDiffText("");
       setDiffPath("");
-      setFinalText("");
-      setMetrics({});
-      // Restore conversation log from exported messages
+      // Restore output and metrics from export
+      setFinalText(parsed.final_text ?? "");
+      setMetrics(parsed.metrics ?? {});
+      // Restore conversation log
       const msgs = Array.isArray(parsed.messages) ? parsed.messages : [];
       setChatLog(
         msgs
           .filter((m) => m.role === "user" || m.role === "assistant")
           .map((m) => ({ role: m.role, text: m.content ?? "", kind: "restored" }))
       );
-      // Pre-fill task with pending task if session was paused
+      // Restore waiting state if applicable
+      if (payload.status === "waiting_for_input") {
+        setWaitingQuestion(parsed.waiting_question ?? "");
+        setWaitingOptions(Array.isArray(parsed.waiting_options) ? parsed.waiting_options : []);
+      } else {
+        setWaitingQuestion("");
+        setWaitingOptions([]);
+      }
+      // Pre-fill task with pending task (paused or waiting)
       if (parsed.pending_task) {
         setTask(parsed.pending_task);
       }

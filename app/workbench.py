@@ -46,6 +46,10 @@ class WorkbenchService:
         workspace_root = Path(workspace).resolve()
         if not workspace_root.exists():
             raise ValueError(f"Workspace path does not exist: {workspace}")
+        if not workspace_root.is_relative_to(self.workspace_root):
+            raise ValueError(
+                f"Workspace must be within the service root ({self.workspace_root}). Got: {workspace_root}"
+            )
         session_id = f"session-{uuid4().hex[:12]}"
         state = SessionState(
             session_id=session_id,
@@ -217,32 +221,39 @@ class WorkbenchService:
 
     def collect_events(self, session_id: str, run_id: str | None = None, after: int = 0) -> list[dict[str, Any]]:
         state = self.get_session(session_id)
-        run_ids = [run_id] if run_id else list(state.run_ids)
-        events: list[dict[str, Any]] = []
-        for rid in run_ids:
+        run_ids_ordered = [run_id] if run_id else list(state.run_ids)
+        run_order = {rid: i for i, rid in enumerate(run_ids_ordered)}
+        raw: list[dict[str, Any]] = []
+        for rid in run_ids_ordered:
             if not rid:
                 continue
             run_file = state.storage_root / "runs" / f"{rid}.json"
             if not run_file.exists():
                 continue
             payload = json.loads(run_file.read_text(encoding="utf-8"))
-            for idx, event in enumerate(payload.get("events", [])):
-                item = {
+            for local_idx, event in enumerate(payload.get("events", [])):
+                raw.append({
                     "session_id": session_id,
                     "run_id": rid,
-                    "index": idx,
+                    "_local": local_idx,
                     **event,
-                }
-                events.append(item)
-        events.sort(key=lambda item: (item.get("timestamp", ""), item.get("run_id", ""), item.get("index", 0)))
-        return [event for event in events if int(event.get("index", 0)) > after]
+                })
+        # Sort by run order then local position — stable and independent of wall-clock drift
+        raw.sort(key=lambda e: (run_order.get(e["run_id"], 99999), e.pop("_local", 0)))
+        # Assign global sequential index after sorting and filter
+        result = []
+        for global_idx, event in enumerate(raw):
+            event["index"] = global_idx
+            if global_idx >= after:
+                result.append(event)
+        return result
 
     async def stream_events(self, session_id: str, run_id: str | None = None, after: int = 0):
         cursor = after
         while True:
             batch = self.collect_events(session_id=session_id, run_id=run_id, after=cursor)
             for event in batch:
-                cursor = max(cursor, int(event.get("index", cursor)))
+                cursor = event["index"] + 1  # advance past this event; not max() to avoid stale cursor
                 yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
             await asyncio.sleep(0.8)
 
@@ -330,6 +341,7 @@ class WorkbenchService:
 
     def export_session(self, session_id: str) -> dict[str, Any]:
         state = self.get_session(session_id)
+        latest = state.latest_result or {}
         return {
             "hardnessware_version": "0.1.0",
             "exported_at": datetime.now(UTC).isoformat(),
@@ -339,6 +351,10 @@ class WorkbenchService:
             "status": state.status,
             "pending_task": state.pending_task,
             "pending_max_turns": state.pending_max_turns,
+            "waiting_question": state.waiting_question,
+            "waiting_options": state.waiting_options,
+            "final_text": latest.get("final_text", ""),
+            "metrics": latest.get("metrics", {}),
             "messages": state.messages,
         }
 
@@ -350,10 +366,16 @@ class WorkbenchService:
         messages = data.get("messages", [])
         if isinstance(messages, list):
             state.messages = [m for m in messages if isinstance(m, dict)]
-        if data.get("status") == "paused" and data.get("pending_task"):
-            state.pending_task = data["pending_task"]
+        saved_status = data.get("status", "idle")
+        if saved_status == "paused" and data.get("pending_task"):
             state.status = "paused"
+            state.pending_task = data["pending_task"]
             state.pending_max_turns = int(data.get("pending_max_turns", 8))
+        elif saved_status == "waiting_for_input" and data.get("pending_task"):
+            state.status = "waiting_for_input"
+            state.pending_task = data["pending_task"]
+            state.waiting_question = data.get("waiting_question")
+            state.waiting_options = data.get("waiting_options") or []
         return state
 
     def _resolve_api_key(self, provider: str) -> str | None:
