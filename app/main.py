@@ -38,6 +38,10 @@ class ReplyRequest(BaseModel):
     content: str = Field(min_length=1)
 
 
+class ImportRequest(BaseModel):
+    data: dict
+
+
 _allowed_origins = [
     o.strip()
     for o in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
@@ -82,6 +86,32 @@ def create_session(request: CreateSessionRequest) -> dict:
         "model": state.model,
         "workspace": str(state.workspace_root),
     }
+
+
+@app.post("/session/import")
+def import_session(request: ImportRequest) -> dict:
+    try:
+        state = _service.import_session(data=request.data)
+        return {
+            "session_id": state.session_id,
+            "created_at": state.created_at,
+            "provider": state.provider,
+            "model": state.model,
+            "workspace": str(state.workspace_root),
+            "status": state.status,
+            "pending_task": state.pending_task,
+            "message_count": len(state.messages),
+        }
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/session/{session_id}/export")
+def export_session(session_id: str) -> dict:
+    try:
+        return _service.export_session(session_id=session_id)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 
 @app.post("/session/{session_id}/run")

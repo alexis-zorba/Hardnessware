@@ -328,6 +328,34 @@ class WorkbenchService:
             "metrics": latest.get("metrics", {}),
         }
 
+    def export_session(self, session_id: str) -> dict[str, Any]:
+        state = self.get_session(session_id)
+        return {
+            "hardnessware_version": "0.1.0",
+            "exported_at": datetime.now(UTC).isoformat(),
+            "workspace": str(state.workspace_root),
+            "provider": state.provider,
+            "model": state.model,
+            "status": state.status,
+            "pending_task": state.pending_task,
+            "pending_max_turns": state.pending_max_turns,
+            "messages": state.messages,
+        }
+
+    def import_session(self, data: dict[str, Any]) -> SessionState:
+        workspace = data.get("workspace", ".")
+        provider = data.get("provider", "openrouter")
+        model = data.get("model", "minimax/minimax-m2.7")
+        state = self.create_session(provider=provider, model=model, workspace=workspace)
+        messages = data.get("messages", [])
+        if isinstance(messages, list):
+            state.messages = [m for m in messages if isinstance(m, dict)]
+        if data.get("status") == "paused" and data.get("pending_task"):
+            state.pending_task = data["pending_task"]
+            state.status = "paused"
+            state.pending_max_turns = int(data.get("pending_max_turns", 8))
+        return state
+
     def _resolve_api_key(self, provider: str) -> str | None:
         mapping = {
             "openai": "OPENAI_API_KEY",

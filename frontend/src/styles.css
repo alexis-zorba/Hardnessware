@@ -259,6 +259,21 @@ button:disabled {
   font-size: 12px;
 }
 
+.btn-load {
+  background: #2463eb;
+  color: #fff;
+  border: 1px solid #2457bf;
+  border-radius: 6px;
+  padding: 7px 11px;
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+}
+
+.btn-load:hover {
+  background: #1a4fcc;
+}
+
 .workspace-locked {
   background: #0a1220;
   border: 1px solid #2b3a55;
