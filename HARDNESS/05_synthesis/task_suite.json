@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {"id": "T01", "name": "read_single_file", "task": "read README.md", "goal": "validate simple read flow"},
+    {"id": "T02", "name": "search_keyword", "task": "search HARDNESS", "goal": "validate repository search"},
+    {"id": "T03", "name": "read_then_summarize", "task": "read docs/hardness_phase1_spec.md", "goal": "validate read before summary"},
+    {"id": "T04", "name": "search_multi_file_signal", "task": "search provider", "goal": "measure retrieval breadth"},
+    {"id": "T05", "name": "controlled_write", "task": "write tmp/note.txt with a short status note", "goal": "validate write guardrails"},
+    {"id": "T06", "name": "read_search_verify", "task": "search memory", "goal": "exercise verification-oriented retrieval"},
+    {"id": "T07", "name": "config_inspection", "task": "read src/hardness/config.py", "goal": "check code inspection stability"},
+    {"id": "T08", "name": "policy_inspection", "task": "read src/hardness/policy.py", "goal": "check safety rule access"},
+    {"id": "T09", "name": "tool_inventory_check", "task": "read src/hardness/tools.py", "goal": "inspect tool discipline"},
+    {"id": "T10", "name": "agent_loop_inspection", "task": "read src/hardness/agent.py", "goal": "inspect loop stability"},
+    {"id": "T11", "name": "search_trace_events", "task": "search stop_reason", "goal": "verify tracing surface"},
+    {"id": "T12", "name": "provider_contract_check", "task": "read src/hardness/providers.py", "goal": "validate provider abstraction"}
+  ]
+}

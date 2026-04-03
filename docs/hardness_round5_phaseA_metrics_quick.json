@@ -1,0 +1,520 @@
+{
+  "phase": "round5_phaseA",
+  "provider": "openrouter",
+  "tasks_total": 3,
+  "models": [
+    {
+      "model": "minimax/minimax-m2.7",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 3,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 14330,
+              "completion_tokens": 204,
+              "total_tokens": 14534,
+              "provider_cost_usd": 0.0061253874
+            },
+            "estimated_cost_usd": 0.00612539
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 3,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 18124,
+              "completion_tokens": 221,
+              "total_tokens": 18345,
+              "provider_cost_usd": 0.0074614122
+            },
+            "estimated_cost_usd": 0.00746141
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 1,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 1,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 1.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 11289,
+              "completion_tokens": 165,
+              "total_tokens": 11454,
+              "provider_cost_usd": 0.007097706
+            },
+            "estimated_cost_usd": 0.00709771
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 1.0,
+          "mean_turns_per_task": 1.6667,
+          "final_after_success_rate_avg": 0.0,
+          "mean_cost_per_task_usd": 0.00689484,
+          "total_estimated_cost_usd": 0.02068451,
+          "cost_coverage_tasks": 3,
+          "stop_reason_distribution": {
+            "max_turns_reached": 2,
+            "write_completed": 1
+          }
+        }
+      }
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v3.2",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v3.2",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v3.2",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 10598,
+              "completion_tokens": 161,
+              "total_tokens": 10759,
+              "provider_cost_usd": 0.004170375
+            },
+            "estimated_cost_usd": 0.00417037
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 11240,
+              "completion_tokens": 184,
+              "total_tokens": 11424,
+              "provider_cost_usd": 0.00469656
+            },
+            "estimated_cost_usd": 0.00469656
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 1,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 1,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 1.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 15670,
+              "completion_tokens": 152,
+              "total_tokens": 15822,
+              "provider_cost_usd": 0.00738045
+            },
+            "estimated_cost_usd": 0.00738045
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 1.0,
+          "mean_turns_per_task": 1.6667,
+          "final_after_success_rate_avg": 0.0,
+          "mean_cost_per_task_usd": 0.00541579,
+          "total_estimated_cost_usd": 0.01624738,
+          "cost_coverage_tasks": 3,
+          "stop_reason_distribution": {
+            "max_turns_reached": 2,
+            "write_completed": 1
+          }
+        }
+      }
+    },
+    {
+      "model": "qwen/qwen3.6-plus-preview:free",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 1.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 15683,
+              "completion_tokens": 1467,
+              "total_tokens": 17150,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 5,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 19261,
+              "completion_tokens": 487,
+              "total_tokens": 19748,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 1,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 1,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 1.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 11905,
+              "completion_tokens": 442,
+              "total_tokens": 12347,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 1.0,
+          "mean_turns_per_task": 1.6667,
+          "final_after_success_rate_avg": 0.3333,
+          "mean_cost_per_task_usd": 0.0,
+          "total_estimated_cost_usd": 0.0,
+          "cost_coverage_tasks": 3,
+          "stop_reason_distribution": {
+            "stop": 1,
+            "max_turns_reached": 1,
+            "write_completed": 1
+          }
+        }
+      }
+    },
+    {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 12222,
+              "completion_tokens": 247,
+              "total_tokens": 12469,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 19196,
+              "completion_tokens": 134,
+              "total_tokens": 19330,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 23875,
+              "completion_tokens": 634,
+              "total_tokens": 24509,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 1.0,
+          "mean_turns_per_task": 2.0,
+          "final_after_success_rate_avg": 0.0,
+          "mean_cost_per_task_usd": 0.0,
+          "total_estimated_cost_usd": 0.0,
+          "cost_coverage_tasks": 3,
+          "stop_reason_distribution": {
+            "max_turns_reached": 2,
+            "write_completed": 1
+          }
+        }
+      }
+    }
+  ],
+  "ranking": {
+    "compatible_models": [
+      "minimax/minimax-m2.7",
+      "deepseek/deepseek-v3.2",
+      "qwen/qwen3.6-plus-preview:free",
+      "nvidia/nemotron-3-super-120b-a12b:free"
+    ],
+    "quality_rank": [
+      "qwen/qwen3.6-plus-preview:free",
+      "minimax/minimax-m2.7",
+      "deepseek/deepseek-v3.2",
+      "nvidia/nemotron-3-super-120b-a12b:free"
+    ],
+    "cost_rank": [
+      "qwen/qwen3.6-plus-preview:free",
+      "nvidia/nemotron-3-super-120b-a12b:free",
+      "deepseek/deepseek-v3.2",
+      "minimax/minimax-m2.7"
+    ]
+  }
+}

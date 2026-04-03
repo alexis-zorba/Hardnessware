@@ -1,0 +1,841 @@
+{
+  "phase": "round6_opportunistic",
+  "task_file": "HARDNESS/05_synthesis/challenge_set_round5_phaseB.json",
+  "runs_per_task": 3,
+  "tasks_total": 4,
+  "baseline_minimax_only": {
+    "mode": "minimax_only",
+    "runs": [
+      {
+        "task_id": "B01",
+        "task_name": "ambiguous_multi_file_lookup",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "max_turns_reached",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 4,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 3859,
+          "completion_tokens": 648,
+          "total_tokens": 4507,
+          "provider_cost_usd": 0.0038318939999999998
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B01",
+        "task_name": "ambiguous_multi_file_lookup",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 6487,
+          "completion_tokens": 190,
+          "total_tokens": 6677,
+          "provider_cost_usd": 0.004304718
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B01",
+        "task_name": "ambiguous_multi_file_lookup",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 6648,
+          "completion_tokens": 216,
+          "total_tokens": 6864,
+          "provider_cost_usd": 0.0013512906
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B02",
+        "task_name": "noisy_search_filtering",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 13915,
+          "completion_tokens": 318,
+          "total_tokens": 14233,
+          "provider_cost_usd": 0.0056707398
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B02",
+        "task_name": "noisy_search_filtering",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 18373,
+          "completion_tokens": 774,
+          "total_tokens": 19147,
+          "provider_cost_usd": 0.012752586
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B02",
+        "task_name": "noisy_search_filtering",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 5814,
+          "completion_tokens": 309,
+          "total_tokens": 6123,
+          "provider_cost_usd": 0.0041877
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B03",
+        "task_name": "write_verify_note",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 5831,
+          "completion_tokens": 104,
+          "total_tokens": 5935,
+          "provider_cost_usd": 0.003710718
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B03",
+        "task_name": "write_verify_note",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 5603,
+          "completion_tokens": 127,
+          "total_tokens": 5730,
+          "provider_cost_usd": 0.003629934
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B03",
+        "task_name": "write_verify_note",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 4817,
+          "completion_tokens": 98,
+          "total_tokens": 4915,
+          "provider_cost_usd": 0.0014203134
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B04",
+        "task_name": "premature_stop_risk",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 10101,
+          "completion_tokens": 335,
+          "total_tokens": 10436,
+          "provider_cost_usd": 0.0048826206
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B04",
+        "task_name": "premature_stop_risk",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 5285,
+          "completion_tokens": 225,
+          "total_tokens": 5510,
+          "provider_cost_usd": 0.00367389
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B04",
+        "task_name": "premature_stop_risk",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 5329,
+          "completion_tokens": 186,
+          "total_tokens": 5515,
+          "provider_cost_usd": 0.0016940286
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      }
+    ],
+    "aggregate": {
+      "completion_rate_mean": 1.0,
+      "completion_rate_variance": 0.0,
+      "turns_mean": 1.5,
+      "turns_variance": 0.583333,
+      "cost_mean": 0.0042592,
+      "cost_variance": 8.2369e-06,
+      "premature_stop_rate": 0.0833,
+      "over_action_rate": 0.0833,
+      "inconsistent_decision_rate": 0.75,
+      "qwen_route_rate": 0.0,
+      "runs_total": 12
+    }
+  },
+  "hybrid_minimax_plus_qwen_opportunistic": {
+    "mode": "hybrid_opportunistic_qwen",
+    "runs": [
+      {
+        "task_id": "B01",
+        "task_name": "ambiguous_multi_file_lookup",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 4,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.25,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 7232,
+          "completion_tokens": 1026,
+          "total_tokens": 8258,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B01",
+        "task_name": "ambiguous_multi_file_lookup",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 5952,
+          "completion_tokens": 665,
+          "total_tokens": 6617,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B01",
+        "task_name": "ambiguous_multi_file_lookup",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 7686,
+          "completion_tokens": 536,
+          "total_tokens": 8222,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B02",
+        "task_name": "noisy_search_filtering",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 25690,
+          "completion_tokens": 1040,
+          "total_tokens": 26730,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B02",
+        "task_name": "noisy_search_filtering",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 2,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.5,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 15317,
+          "completion_tokens": 890,
+          "total_tokens": 16207,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B02",
+        "task_name": "noisy_search_filtering",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 7266,
+          "completion_tokens": 606,
+          "total_tokens": 7872,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B03",
+        "task_name": "write_verify_note",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 13667,
+          "completion_tokens": 258,
+          "total_tokens": 13925,
+          "provider_cost_usd": 0.008731206
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B03",
+        "task_name": "write_verify_note",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 7239,
+          "completion_tokens": 113,
+          "total_tokens": 7352,
+          "provider_cost_usd": 0.004568454
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B03",
+        "task_name": "write_verify_note",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 7266,
+          "completion_tokens": 133,
+          "total_tokens": 7399,
+          "provider_cost_usd": 0.0020001762
+        },
+        "routing": {
+          "profile_name": "minimax-default",
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "reason": "default_profile"
+        }
+      },
+      {
+        "task_id": "B04",
+        "task_name": "premature_stop_risk",
+        "run_index": 1,
+        "status": "error",
+        "stop_reason": null,
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 1,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 0.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 6567,
+          "completion_tokens": 64,
+          "total_tokens": 6631,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B04",
+        "task_name": "premature_stop_risk",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 16421,
+          "completion_tokens": 298,
+          "total_tokens": 16719,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      },
+      {
+        "task_id": "B04",
+        "task_name": "premature_stop_risk",
+        "run_index": 3,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 8869,
+          "completion_tokens": 106,
+          "total_tokens": 8975,
+          "provider_cost_usd": 0.0
+        },
+        "routing": {
+          "profile_name": "qwen-opportunistic",
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "reason": "opportunistic_low_risk"
+        }
+      }
+    ],
+    "aggregate": {
+      "completion_rate_mean": 0.9167,
+      "completion_rate_variance": 0.076389,
+      "turns_mean": 1.6667,
+      "turns_variance": 0.555556,
+      "cost_mean": 0.00127499,
+      "cost_variance": 6.7999e-06,
+      "premature_stop_rate": 0.0833,
+      "over_action_rate": 0.0833,
+      "inconsistent_decision_rate": 1.0,
+      "qwen_route_rate": 0.75,
+      "runs_total": 12
+    }
+  },
+  "decision": {
+    "adopt_opportunistic_qwen": false,
+    "keeps_stability": false,
+    "cheaper_than_baseline": true,
+    "recommended_default": "minimax/minimax-m2.7",
+    "recommended_opportunistic": "disabled"
+  }
+}

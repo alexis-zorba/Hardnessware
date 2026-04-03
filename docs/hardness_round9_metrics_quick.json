@@ -1,0 +1,128 @@
+{
+  "phase": "round9_challenge_realism",
+  "task_file": "HARDNESS/05_synthesis/challenge_set_round9.json",
+  "runs_per_task": 1,
+  "tasks_total": 3,
+  "runs": [
+    {
+      "task_id": "R901",
+      "task_class": "documentale",
+      "task_name": "cross_doc_policy_consistency",
+      "run_index": 1,
+      "status": "error",
+      "stop_reason": null,
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 2,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 1,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.0,
+        "mean_turns_to_completion": 0.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 0.0,
+        "finalization_delay_rate": 0.0,
+        "post_success_extra_action_rate": 0.0,
+        "explicit_completion_rate": 0.0,
+        "weak_final_rate": 0.0,
+        "finalization_correctness_rate": 0.0,
+        "finalization_quality_rate": 0.0
+      },
+      "failure_mode": "premature_stop"
+    },
+    {
+      "task_id": "R902",
+      "task_class": "documentale",
+      "task_name": "metrics_signal_extraction",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 4,
+        "tool_calls": 5,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 4,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.2,
+        "mean_turns_to_completion": 4.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 1.0,
+        "finalization_delay_rate": 0.75,
+        "post_success_extra_action_rate": 0.0,
+        "explicit_completion_rate": 1.0,
+        "weak_final_rate": 0.0,
+        "finalization_correctness_rate": 1.0,
+        "finalization_quality_rate": 1.0
+      },
+      "failure_mode": "none"
+    },
+    {
+      "task_id": "R903",
+      "task_class": "documentale",
+      "task_name": "doc_conflict_scan",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 4,
+        "tool_calls": 4,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 4,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.5,
+        "mean_turns_to_completion": 4.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 1.0,
+        "finalization_delay_rate": 0.75,
+        "post_success_extra_action_rate": 0.0,
+        "explicit_completion_rate": 1.0,
+        "weak_final_rate": 0.0,
+        "finalization_correctness_rate": 1.0,
+        "finalization_quality_rate": 1.0
+      },
+      "failure_mode": "none"
+    }
+  ],
+  "aggregate": {
+    "completion_rate_mean": 0.6667,
+    "turns_mean": 3.3333,
+    "over_action_rate": 0.6667,
+    "inconsistent_decision_rate": 0.0,
+    "premature_stop_rate": 0.3333,
+    "no_progress_rate": 0.0,
+    "final_after_success_mean": 0.2333,
+    "stop_reason_distribution": {
+      "none": 1,
+      "stop": 2
+    },
+    "failure_modes_top": [
+      [
+        "none",
+        2
+      ],
+      [
+        "premature_stop",
+        1
+      ]
+    ],
+    "class_breakdown": {
+      "documentale": {
+        "completion_rate": 0.6667,
+        "turns_mean": 3.3333
+      }
+    },
+    "runs_total": 3
+  }
+}

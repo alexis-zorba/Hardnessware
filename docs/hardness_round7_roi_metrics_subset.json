@@ -1,0 +1,167 @@
+{
+  "phase": "round7_premium_roi",
+  "task_file": "HARDNESS/05_synthesis/challenge_set_round4.json",
+  "runs_per_task": 1,
+  "tasks_total": 2,
+  "baseline_minimax_only": {
+    "runs": [
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 22947,
+          "completion_tokens": 534,
+          "total_tokens": 23481
+        },
+        "estimated_cost_usd": 0.0075249,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C02",
+        "task_name": "multi_file_policy_check",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 29910,
+          "completion_tokens": 841,
+          "total_tokens": 30751
+        },
+        "estimated_cost_usd": 0.0099822,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      }
+    ],
+    "aggregate": {
+      "completion_rate": 1.0,
+      "difficult_completion_rate": 1.0,
+      "mean_turns_per_task": 3.0,
+      "mean_cost_per_task_usd": 0.00875355,
+      "total_estimated_cost_usd": 0.0175071,
+      "escalation_rate": 0.0,
+      "escalation_cost_mean_usd": null,
+      "runs_total": 2
+    }
+  },
+  "hybrid_minimax_plus_sonnet": {
+    "runs": [
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 37806,
+          "completion_tokens": 1193,
+          "total_tokens": 38999
+        },
+        "estimated_cost_usd": 0.0808344,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      },
+      {
+        "task_id": "C02",
+        "task_name": "multi_file_policy_check",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 4,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.25,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 55632,
+          "completion_tokens": 1403,
+          "total_tokens": 57035
+        },
+        "estimated_cost_usd": 0.1243926,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      }
+    ],
+    "aggregate": {
+      "completion_rate": 1.0,
+      "difficult_completion_rate": 1.0,
+      "mean_turns_per_task": 3.0,
+      "mean_cost_per_task_usd": 0.1026135,
+      "total_estimated_cost_usd": 0.205227,
+      "escalation_rate": 1.0,
+      "escalation_cost_mean_usd": 0.1026135,
+      "runs_total": 2
+    }
+  },
+  "decision": {
+    "difficult_completion_gain": 0.0,
+    "extra_cost_per_task_usd": 0.09385995,
+    "quality_gain_per_extra_usd": 0.0,
+    "cost_ratio_vs_baseline": 11.7225,
+    "adopt_premium_escalation": false,
+    "recommended_default": "minimax/minimax-m2.7",
+    "recommended_escalation": "restricted_or_disabled"
+  }
+}

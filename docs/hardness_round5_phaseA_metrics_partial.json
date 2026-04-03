@@ -1,0 +1,629 @@
+{
+  "phase": "round5_phaseA",
+  "provider": "openrouter",
+  "tasks_total": 4,
+  "models": [
+    {
+      "model": "minimax/minimax-m2.7",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "minimax/minimax-m2.7",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 3,
+              "tool_calls": 4,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 3,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.25,
+              "mean_turns_to_completion": 3.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 23590,
+              "completion_tokens": 686,
+              "total_tokens": 24276,
+              "provider_cost_usd": 0.011813056199999998
+            },
+            "estimated_cost_usd": 0.01181306
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 3,
+              "tool_calls": 5,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 3,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.2,
+              "mean_turns_to_completion": 3.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 36344,
+              "completion_tokens": 852,
+              "total_tokens": 37196,
+              "provider_cost_usd": 0.0133194996
+            },
+            "estimated_cost_usd": 0.0133195
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 1,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 1,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 1.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 15427,
+              "completion_tokens": 363,
+              "total_tokens": 15790,
+              "provider_cost_usd": 0.010026126
+            },
+            "estimated_cost_usd": 0.01002613
+          },
+          {
+            "id": "C04",
+            "name": "tool_misuse_resistance",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 1.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 26787,
+              "completion_tokens": 396,
+              "total_tokens": 27183,
+              "provider_cost_usd": 0.016852374
+            },
+            "estimated_cost_usd": 0.01685237
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 1.0,
+          "mean_turns_per_task": 2.25,
+          "final_after_success_rate_avg": 0.3625,
+          "mean_cost_per_task_usd": 0.01300276,
+          "total_estimated_cost_usd": 0.05201106,
+          "cost_coverage_tasks": 4,
+          "stop_reason_distribution": {
+            "stop": 3,
+            "write_completed": 1
+          }
+        }
+      }
+    },
+    {
+      "model": "deepseek/deepseek-v3.2",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v3.2",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v3.2",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v3.2",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 4,
+              "tool_calls": 4,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 4,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 4.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 27064,
+              "completion_tokens": 333,
+              "total_tokens": 27397,
+              "provider_cost_usd": 0.009265905
+            },
+            "estimated_cost_usd": 0.0092659
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "max_turns_reached",
+            "metrics": {
+              "turns": 4,
+              "tool_calls": 4,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 4,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 4.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 82837,
+              "completion_tokens": 753,
+              "total_tokens": 83590,
+              "provider_cost_usd": 0.0342342
+            },
+            "estimated_cost_usd": 0.0342342
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 51742,
+              "completion_tokens": 235,
+              "total_tokens": 51977,
+              "provider_cost_usd": 0.024694065
+            },
+            "estimated_cost_usd": 0.02469407
+          },
+          {
+            "id": "C04",
+            "name": "tool_misuse_resistance",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 1.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 33429,
+              "completion_tokens": 195,
+              "total_tokens": 33624,
+              "provider_cost_usd": 0.015347969999999999
+            },
+            "estimated_cost_usd": 0.01534797
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 1.0,
+          "mean_turns_per_task": 3.0,
+          "final_after_success_rate_avg": 0.25,
+          "mean_cost_per_task_usd": 0.02088554,
+          "total_estimated_cost_usd": 0.08354214,
+          "cost_coverage_tasks": 4,
+          "stop_reason_distribution": {
+            "max_turns_reached": 2,
+            "write_completed": 1,
+            "stop": 1
+          }
+        }
+      }
+    },
+    {
+      "model": "qwen/qwen3.6-plus-preview:free",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "qwen/qwen3.6-plus-preview:free",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "error",
+            "stop_reason": null,
+            "metrics": {
+              "turns": 3,
+              "tool_calls": 4,
+              "tool_failures": 1,
+              "repeated_actions": 0,
+              "parse_failures": 1,
+              "verified_writes": 0,
+              "provider_calls": 3,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 0.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 18409,
+              "completion_tokens": 999,
+              "total_tokens": 19408,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 4,
+              "tool_calls": 5,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 4,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.2,
+              "mean_turns_to_completion": 4.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 54866,
+              "completion_tokens": 1264,
+              "total_tokens": 56130,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 1,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 1,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 1.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 14974,
+              "completion_tokens": 363,
+              "total_tokens": 15337,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C04",
+            "name": "tool_misuse_resistance",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 1.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 25295,
+              "completion_tokens": 581,
+              "total_tokens": 25876,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 0.75,
+          "mean_turns_per_task": 2.5,
+          "final_after_success_rate_avg": 0.3,
+          "mean_cost_per_task_usd": 0.0,
+          "total_estimated_cost_usd": 0.0,
+          "cost_coverage_tasks": 4,
+          "stop_reason_distribution": {
+            "none": 1,
+            "stop": 2,
+            "write_completed": 1
+          }
+        }
+      }
+    },
+    {
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "probes": {
+        "basic": {
+          "provider": "openrouter",
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "probe_kind": "basic",
+          "ok": true,
+          "has_choices": true
+        },
+        "structured": {
+          "provider": "openrouter",
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "probe_kind": "structured",
+          "ok": true,
+          "has_choices": true
+        },
+        "tool": {
+          "provider": "openrouter",
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "probe_kind": "tool",
+          "ok": true,
+          "has_choices": true
+        }
+      },
+      "metrics": {
+        "tasks": [
+          {
+            "id": "C01",
+            "name": "ambiguous_config_retrieval",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 3,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 3,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.5,
+              "mean_turns_to_completion": 3.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 10958,
+              "completion_tokens": 593,
+              "total_tokens": 11551,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C02",
+            "name": "multi_file_policy_check",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 3,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 3,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.5,
+              "mean_turns_to_completion": 3.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 21818,
+              "completion_tokens": 503,
+              "total_tokens": 22321,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C03",
+            "name": "write_with_verification",
+            "status": "ok",
+            "stop_reason": "write_completed",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 2,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 1,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 0.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 18949,
+              "completion_tokens": 448,
+              "total_tokens": 19397,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          },
+          {
+            "id": "C04",
+            "name": "tool_misuse_resistance",
+            "status": "ok",
+            "stop_reason": "stop",
+            "metrics": {
+              "turns": 2,
+              "tool_calls": 1,
+              "tool_failures": 0,
+              "repeated_actions": 0,
+              "parse_failures": 0,
+              "verified_writes": 0,
+              "provider_calls": 2,
+              "duplicate_action_rate": 0.0,
+              "redundant_read_rate": 0.0,
+              "final_after_success_rate": 1.0,
+              "mean_turns_to_completion": 2.0,
+              "no_progress_stop_count": 0
+            },
+            "usage": {
+              "prompt_tokens": 19491,
+              "completion_tokens": 334,
+              "total_tokens": 19825,
+              "provider_cost_usd": 0.0
+            },
+            "estimated_cost_usd": 0.0
+          }
+        ],
+        "aggregate": {
+          "completion_rate": 1.0,
+          "mean_turns_per_task": 2.5,
+          "final_after_success_rate_avg": 0.5,
+          "mean_cost_per_task_usd": 0.0,
+          "total_estimated_cost_usd": 0.0,
+          "cost_coverage_tasks": 4,
+          "stop_reason_distribution": {
+            "stop": 3,
+            "write_completed": 1
+          }
+        }
+      }
+    }
+  ],
+  "ranking": {
+    "compatible_models": [
+      "minimax/minimax-m2.7",
+      "deepseek/deepseek-v3.2",
+      "qwen/qwen3.6-plus-preview:free",
+      "nvidia/nemotron-3-super-120b-a12b:free"
+    ],
+    "quality_rank": [
+      "nvidia/nemotron-3-super-120b-a12b:free",
+      "minimax/minimax-m2.7",
+      "deepseek/deepseek-v3.2",
+      "qwen/qwen3.6-plus-preview:free"
+    ],
+    "cost_rank": [
+      "qwen/qwen3.6-plus-preview:free",
+      "nvidia/nemotron-3-super-120b-a12b:free",
+      "minimax/minimax-m2.7",
+      "deepseek/deepseek-v3.2"
+    ]
+  }
+}

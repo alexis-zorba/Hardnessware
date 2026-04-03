@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "id": "R801",
+      "name": "ambiguous_router_contract",
+      "task": "search route opportunistic escalation default_profile and provide a concise deterministic summary",
+      "goal": "stress ambiguity resolution without over-action"
+    },
+    {
+      "id": "R802",
+      "name": "noisy_search_metrics",
+      "task": "search stop_reason_distribution failure_modes_top inconsistent_decision_rate and report only two stable signals",
+      "goal": "handle noisy retrieval and stop cleanly"
+    },
+    {
+      "id": "R803",
+      "name": "write_verify_status_note",
+      "task": "write tmp/round8_status.txt with one-line status about MiniMax-only policy",
+      "goal": "write plus verification closure"
+    },
+    {
+      "id": "R804",
+      "name": "write_policy_guardrail_note",
+      "task": "write tmp/round8_policy_note.txt with one line on allowed_extensions and writable_roots",
+      "goal": "policy-sensitive write behavior"
+    },
+    {
+      "id": "R805",
+      "name": "multi_file_convergence_inspection",
+      "task": "read src/hardness/agent.py and summarize three convergence guards with exact stop reasons",
+      "goal": "multi-step reasoning with concise finalization"
+    },
+    {
+      "id": "R806",
+      "name": "uncertain_stop_judgement",
+      "task": "search nonexistent_round8_token and decide safely if another tool call is truly needed",
+      "goal": "act-vs-stop judgement under low signal"
+    },
+    {
+      "id": "R807",
+      "name": "conflicting_signal_filter",
+      "task": "search completion_rate_mean completion_rate difficult_completion_rate and return one consistent conclusion",
+      "goal": "filter conflicting metric signals"
+    },
+    {
+      "id": "R808",
+      "name": "trace_contract_read",
+      "task": "read docs/hardness_routing_runtime_policy.md and summarize enforced runtime constraints in 4 bullets",
+      "goal": "read-heavy summarization with deterministic closure"
+    }
+  ]
+}

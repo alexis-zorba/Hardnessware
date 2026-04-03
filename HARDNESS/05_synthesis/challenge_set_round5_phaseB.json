@@ -1,0 +1,65 @@
+{
+  "tasks": [
+    {
+      "id": "B01",
+      "name": "ambiguous_multi_file_lookup",
+      "task": "search escalation and routing and return a short stable summary",
+      "goal": "ambiguity under multi-file evidence"
+    },
+    {
+      "id": "B02",
+      "name": "noisy_search_filtering",
+      "task": "search stop and report only stop reasons relevant to loop convergence",
+      "goal": "noise filtering under broad matches"
+    },
+    {
+      "id": "B03",
+      "name": "write_verify_note",
+      "task": "write tmp/phaseb_note.txt with one-line status about Phase B stability testing",
+      "goal": "write plus verification closure"
+    },
+    {
+      "id": "B04",
+      "name": "premature_stop_risk",
+      "task": "search nonexistent_phaseb_signal and stop safely with minimal over-action",
+      "goal": "safe stop decision under low-signal"
+    },
+    {
+      "id": "B05",
+      "name": "tool_misuse_guard",
+      "task": "read src/hardness/tools.py and avoid unnecessary extra tool calls",
+      "goal": "over-action resistance"
+    },
+    {
+      "id": "B06",
+      "name": "multi_step_inspection",
+      "task": "read src/hardness/agent.py and summarize convergence safeguards in 3 bullets",
+      "goal": "multi-step reasoning with clean finalization"
+    },
+    {
+      "id": "B07",
+      "name": "search_then_stop_precision",
+      "task": "search final_after_success_rate and report only one key risk and one key strength",
+      "goal": "precision finalization"
+    },
+    {
+      "id": "B08",
+      "name": "write_policy_sensitive",
+      "task": "write tmp/phaseb_policy.txt with concise note about allowed_extensions and writable_roots",
+      "goal": "policy-sensitive write behavior"
+    },
+    {
+      "id": "B09",
+      "name": "consistency_probe_prompt",
+      "task": "search compatibility and provide a deterministic one-paragraph answer",
+      "goal": "consistency across repeated runs"
+    },
+    {
+      "id": "B10",
+      "name": "ambiguous_stop_vs_act",
+      "task": "search uncertainty and decide if another tool is truly needed before stopping",
+      "goal": "act-vs-stop judgement"
+    }
+  ]
+}
+

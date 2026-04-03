@@ -1,0 +1,40 @@
+{
+  "tasks": [
+    {
+      "id": "F801",
+      "name": "read_then_finalize_fast",
+      "task": "read docs/hardness_routing_runtime_policy.md and provide a one-paragraph final answer",
+      "goal": "recognize success early and finalize without extra actions"
+    },
+    {
+      "id": "F802",
+      "name": "search_signal_then_finalize",
+      "task": "search weak_finalization and report exactly one key risk and one key mitigation",
+      "goal": "avoid late stop after sufficient search signal"
+    },
+    {
+      "id": "F803",
+      "name": "write_then_seal_completion",
+      "task": "write tmp/round8_1_note.txt with one-line confirmation that MiniMax-only policy is active",
+      "goal": "write success must be sealed deterministically"
+    },
+    {
+      "id": "F804",
+      "name": "ambiguous_summary_no_overaction",
+      "task": "search default_executor premium_escalation and provide a concise stable summary",
+      "goal": "no over-action after first useful retrieval"
+    },
+    {
+      "id": "F805",
+      "name": "search_low_signal_safe_stop",
+      "task": "search nonexistent_round8_1_token and decide safely when to stop",
+      "goal": "explicit completion even under low signal"
+    },
+    {
+      "id": "F806",
+      "name": "write_policy_completion",
+      "task": "write tmp/round8_1_policy.txt with one line about allowed_extensions and writable_roots",
+      "goal": "policy-aware write with immediate completion"
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #090d14;
+  color: #e6edf3;
+}
+
+.wb-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #1b2637;
+  background: linear-gradient(180deg, #101726 0%, #0d1422 100%);
+}
+
+.wb-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #9fb0c9;
+}
+
+.header-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+button {
+  background: #2463eb;
+  color: #fff;
+  border: 1px solid #2457bf;
+  border-radius: 6px;
+  padding: 7px 11px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-pill,
+.session-pill {
+  background: #172133;
+  border: 1px solid #2b3c57;
+  border-radius: 6px;
+  padding: 4px 9px;
+  font-size: 12px;
+}
+
+.status-running {
+  color: #83f0b6;
+  border-color: #246b4a;
+}
+
+.status-waiting_for_input {
+  color: #f8d383;
+  border-color: #6d5325;
+}
+
+.status-interrupted,
+.status-interrupt_requested {
+  color: #f4a6a6;
+  border-color: #6f2f2f;
+}
+
+.status-paused {
+  color: #ffd580;
+  border-color: #7a5c10;
+}
+
+.status-completed,
+.status-idle {
+  color: #a8c4ff;
+  border-color: #385da4;
+}
+
+.wb-main {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.left-column {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  min-height: 0;
+}
+
+.card {
+  border: 1px solid #1f2a3e;
+  border-radius: 8px;
+  background: #0e1624;
+  padding: 12px;
+  overflow: auto;
+  min-height: 0;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #cfdbef;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #9eb2d3;
+}
+
+.command-center textarea,
+.command-center input,
+.inline-actions input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #2b3a55;
+  border-radius: 6px;
+  background: #0a1220;
+  color: #e6edf3;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.command-center textarea {
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.inline-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.waiting-box {
+  margin-top: 8px;
+  border: 1px solid #4c3a1d;
+  background: #1a1610;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.waiting-box h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #f8d383;
+}
+
+.waiting-box p {
+  margin: 0 0 8px;
+  font-size: 12px;
+}
+
+.waiting-box ul {
+  margin: 0 0 8px 16px;
+  padding: 0;
+  font-size: 12px;
+}
+
+.activity-stream pre,
+.chat-item pre,
+.inspector pre {
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  margin: 0;
+}
+
+.right-column {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+}
+
+.subcard {
+  border: 1px solid #1f2a3e;
+  border-radius: 8px;
+  background: #0a1220;
+  padding: 10px;
+  min-height: 0;
+  overflow: auto;
+}
+
+.subcard h2 {
+  margin: 0 0 8px;
+  font-size: 13px;
+}
+
+.chat-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-item {
+  border: 1px solid #26344c;
+  border-radius: 8px;
+  background: #101a2b;
+  padding: 8px;
+}
+
+.role-user {
+  border-color: #30509a;
+}
+
+.role-assistant {
+  border-color: #2e6a4d;
+}
+
+.chat-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: #9fb0c9;
+}
+
+.inspector-block {
+  margin-bottom: 12px;
+}
+
+.inspector-block h3 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: #9fb0c9;
+}
+
+.inspector-block ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+}
+
+.error-banner {
+  color: #ffb4b4;
+  background: #3a1010;
+  border-top: 1px solid #632222;
+  padding: 8px 12px;
+}
+
+.busy-indicator {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  border: 1px solid #3e5d9f;
+  background: #12213f;
+  color: #c9dcff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+@media (max-width: 1100px) {
+  .wb-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .left-column {
+    grid-template-rows: auto auto;
+  }
+
+  .right-column {
+    grid-template-rows: auto auto;
+  }
+}

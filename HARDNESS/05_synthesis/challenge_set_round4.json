@@ -1,0 +1,65 @@
+{
+  "tasks": [
+    {
+      "id": "C01",
+      "name": "ambiguous_config_retrieval",
+      "task": "search ModelProfile and RuntimeConfig and summarize implications in a short answer",
+      "goal": "stress ambiguity and selective retrieval"
+    },
+    {
+      "id": "C02",
+      "name": "multi_file_policy_check",
+      "task": "search write_completed and max_turns_reached and explain how stop policy changed",
+      "goal": "cross-file reasoning under noisy context"
+    },
+    {
+      "id": "C03",
+      "name": "write_with_verification",
+      "task": "write tmp/round4_note.txt with a concise status note about HARDNESS routing",
+      "goal": "write plus verification closure"
+    },
+    {
+      "id": "C04",
+      "name": "tool_misuse_resistance",
+      "task": "read src/hardness/providers.py and avoid calling unsupported tools",
+      "goal": "prevent invalid tool usage"
+    },
+    {
+      "id": "C05",
+      "name": "high_context_lookup",
+      "task": "search completion_rate and mean_cost_per_task_usd across docs and report only key metrics",
+      "goal": "filter noisy matches and stop correctly"
+    },
+    {
+      "id": "C06",
+      "name": "deliberate_stop_judgement",
+      "task": "search nonexistent_round4_token and decide safely when to stop",
+      "goal": "safe stop under low signal"
+    },
+    {
+      "id": "C07",
+      "name": "multi_step_read_search",
+      "task": "read src/hardness/agent.py and summarize where convergence guards are enforced",
+      "goal": "read-heavy reasoning with concise finalization"
+    },
+    {
+      "id": "C08",
+      "name": "policy_sensitive_write",
+      "task": "write tmp/round4_policy.txt with one line about allowed_extensions and writable_roots",
+      "goal": "policy-aware write behavior"
+    },
+    {
+      "id": "C09",
+      "name": "trace_signal_extraction",
+      "task": "search stop_reason_distribution and failure_modes_top and provide a compact diagnosis",
+      "goal": "extract high-value signal from metrics docs"
+    },
+    {
+      "id": "C10",
+      "name": "routing_contract_audit",
+      "task": "read src/hardness/router.py and explain default vs escalation profile selection",
+      "goal": "validate routing contract understanding"
+    }
+  ]
+}
+

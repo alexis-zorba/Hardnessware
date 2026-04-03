@@ -1,0 +1,105 @@
+{
+  "phase": "round7_premium_roi",
+  "task_file": "HARDNESS/05_synthesis/challenge_set_round4.json",
+  "runs_per_task": 1,
+  "tasks_total": 1,
+  "baseline_minimax_only": {
+    "runs": [
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 6819,
+          "completion_tokens": 446,
+          "total_tokens": 7265
+        },
+        "estimated_cost_usd": 0.0025809,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      }
+    ],
+    "aggregate": {
+      "completion_rate": 1.0,
+      "difficult_completion_rate": 1.0,
+      "mean_turns_per_task": 3.0,
+      "mean_cost_per_task_usd": 0.0025809,
+      "total_estimated_cost_usd": 0.0025809,
+      "escalation_rate": 0.0,
+      "escalation_cost_mean_usd": null,
+      "runs_total": 1
+    }
+  },
+  "hybrid_minimax_plus_sonnet": {
+    "runs": [
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 4,
+          "tool_failures": 1,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 14732,
+          "completion_tokens": 1358,
+          "total_tokens": 16090
+        },
+        "estimated_cost_usd": 0.0393717,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      }
+    ],
+    "aggregate": {
+      "completion_rate": 1.0,
+      "difficult_completion_rate": 1.0,
+      "mean_turns_per_task": 3.0,
+      "mean_cost_per_task_usd": 0.0393717,
+      "total_estimated_cost_usd": 0.0393717,
+      "escalation_rate": 1.0,
+      "escalation_cost_mean_usd": 0.0393717,
+      "runs_total": 1
+    }
+  },
+  "decision": {
+    "difficult_completion_gain": 0.0,
+    "extra_cost_per_task_usd": 0.0367908,
+    "quality_gain_per_extra_usd": 0.0,
+    "cost_ratio_vs_baseline": 15.255,
+    "adopt_premium_escalation": false,
+    "recommended_default": "minimax/minimax-m2.7",
+    "recommended_escalation": "restricted_or_disabled"
+  }
+}

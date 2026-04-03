@@ -1,0 +1,535 @@
+{
+  "phase": "round7_premium_roi",
+  "task_file": "HARDNESS/05_synthesis/challenge_set_round4.json",
+  "runs_per_task": 2,
+  "tasks_total": 4,
+  "baseline_minimax_only": {
+    "runs": [
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 4,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.25,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 13708,
+          "completion_tokens": 525,
+          "total_tokens": 14233
+        },
+        "estimated_cost_usd": 0.0047424,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 8049,
+          "completion_tokens": 238,
+          "total_tokens": 8287
+        },
+        "estimated_cost_usd": 0.0027003,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C02",
+        "task_name": "multi_file_policy_check",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 4,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.25,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 29212,
+          "completion_tokens": 692,
+          "total_tokens": 29904
+        },
+        "estimated_cost_usd": 0.009594,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C02",
+        "task_name": "multi_file_policy_check",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 18686,
+          "completion_tokens": 631,
+          "total_tokens": 19317
+        },
+        "estimated_cost_usd": 0.006363,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C03",
+        "task_name": "write_with_verification",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 8471,
+          "completion_tokens": 385,
+          "total_tokens": 8856
+        },
+        "estimated_cost_usd": 0.0030033,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C03",
+        "task_name": "write_with_verification",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 8314,
+          "completion_tokens": 147,
+          "total_tokens": 8461
+        },
+        "estimated_cost_usd": 0.0026706,
+        "difficult": true,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C04",
+        "task_name": "tool_misuse_resistance",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 15306,
+          "completion_tokens": 347,
+          "total_tokens": 15653
+        },
+        "estimated_cost_usd": 0.0050082,
+        "difficult": false,
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C04",
+        "task_name": "tool_misuse_resistance",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 18384,
+          "completion_tokens": 365,
+          "total_tokens": 18749
+        },
+        "estimated_cost_usd": 0.0059532,
+        "difficult": false,
+        "model_used": "minimax/minimax-m2.7"
+      }
+    ],
+    "aggregate": {
+      "completion_rate": 1.0,
+      "difficult_completion_rate": 1.0,
+      "mean_turns_per_task": 1.875,
+      "mean_cost_per_task_usd": 0.00500438,
+      "total_estimated_cost_usd": 0.040035,
+      "escalation_rate": 0.0,
+      "escalation_cost_mean_usd": null,
+      "runs_total": 8
+    }
+  },
+  "hybrid_minimax_plus_sonnet": {
+    "runs": [
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 2,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.5,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 28274,
+          "completion_tokens": 1321,
+          "total_tokens": 29595
+        },
+        "estimated_cost_usd": 0.0438276,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      },
+      {
+        "task_id": "C01",
+        "task_name": "ambiguous_config_retrieval",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 22142,
+          "completion_tokens": 823,
+          "total_tokens": 22965
+        },
+        "estimated_cost_usd": 0.0373431,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      },
+      {
+        "task_id": "C02",
+        "task_name": "multi_file_policy_check",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 3,
+          "tool_calls": 3,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 3,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.3333333333333333,
+          "mean_turns_to_completion": 3.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 80129,
+          "completion_tokens": 1597,
+          "total_tokens": 81726
+        },
+        "estimated_cost_usd": 0.1301901,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      },
+      {
+        "task_id": "C02",
+        "task_name": "multi_file_policy_check",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 0,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 26382,
+          "completion_tokens": 1141,
+          "total_tokens": 27523
+        },
+        "estimated_cost_usd": 0.0522522,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      },
+      {
+        "task_id": "C03",
+        "task_name": "write_with_verification",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 25138,
+          "completion_tokens": 604,
+          "total_tokens": 25742
+        },
+        "estimated_cost_usd": 0.0459762,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      },
+      {
+        "task_id": "C03",
+        "task_name": "write_with_verification",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "write_completed",
+        "metrics": {
+          "turns": 1,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 1,
+          "provider_calls": 1,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 0.0,
+          "mean_turns_to_completion": 1.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 17681,
+          "completion_tokens": 602,
+          "total_tokens": 18283
+        },
+        "estimated_cost_usd": 0.0397455,
+        "difficult": true,
+        "escalated": true,
+        "escalation_reasons": [
+          "pre_risk_trigger"
+        ],
+        "model_used": "hybrid:escalated_to_sonnet"
+      },
+      {
+        "task_id": "C04",
+        "task_name": "tool_misuse_resistance",
+        "run_index": 1,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 16356,
+          "completion_tokens": 534,
+          "total_tokens": 16890
+        },
+        "estimated_cost_usd": 0.0055476,
+        "difficult": false,
+        "escalated": false,
+        "escalation_reasons": [],
+        "model_used": "minimax/minimax-m2.7"
+      },
+      {
+        "task_id": "C04",
+        "task_name": "tool_misuse_resistance",
+        "run_index": 2,
+        "status": "ok",
+        "stop_reason": "stop",
+        "metrics": {
+          "turns": 2,
+          "tool_calls": 1,
+          "tool_failures": 0,
+          "repeated_actions": 0,
+          "parse_failures": 0,
+          "verified_writes": 0,
+          "provider_calls": 2,
+          "duplicate_action_rate": 0.0,
+          "redundant_read_rate": 0.0,
+          "final_after_success_rate": 1.0,
+          "mean_turns_to_completion": 2.0,
+          "no_progress_stop_count": 0
+        },
+        "usage": {
+          "prompt_tokens": 18941,
+          "completion_tokens": 442,
+          "total_tokens": 19383
+        },
+        "estimated_cost_usd": 0.0062127,
+        "difficult": false,
+        "escalated": false,
+        "escalation_reasons": [],
+        "model_used": "minimax/minimax-m2.7"
+      }
+    ],
+    "aggregate": {
+      "completion_rate": 1.0,
+      "difficult_completion_rate": 1.0,
+      "mean_turns_per_task": 1.625,
+      "mean_cost_per_task_usd": 0.04513687,
+      "total_estimated_cost_usd": 0.361095,
+      "escalation_rate": 0.75,
+      "escalation_cost_mean_usd": 0.05822245,
+      "runs_total": 8
+    }
+  },
+  "decision": {
+    "difficult_completion_gain": 0.0,
+    "extra_cost_per_task_usd": 0.04013249,
+    "quality_gain_per_extra_usd": 0.0,
+    "cost_ratio_vs_baseline": 9.0195,
+    "adopt_premium_escalation": false,
+    "recommended_default": "minimax/minimax-m2.7",
+    "recommended_escalation": "restricted_or_disabled"
+  }
+}

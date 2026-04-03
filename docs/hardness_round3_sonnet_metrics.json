@@ -1,0 +1,362 @@
+{
+  "provider": "openrouter",
+  "model": "anthropic/claude-sonnet-4.6",
+  "pricing": {
+    "input_per_million": 3.0,
+    "output_per_million": 15.0
+  },
+  "tasks_total": 12,
+  "tasks": [
+    {
+      "id": "T01",
+      "name": "read_single_file",
+      "task": "read README.md",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2143,
+        "completion_tokens": 415,
+        "total_tokens": 2558
+      },
+      "estimated_cost_usd": 0.012654
+    },
+    {
+      "id": "T02",
+      "name": "search_keyword",
+      "task": "search HARDNESS",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3908,
+        "completion_tokens": 879,
+        "total_tokens": 4787
+      },
+      "estimated_cost_usd": 0.024909
+    },
+    {
+      "id": "T03",
+      "name": "read_then_summarize",
+      "task": "read docs/hardness_phase1_spec.md",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 9067,
+        "completion_tokens": 1144,
+        "total_tokens": 10211
+      },
+      "estimated_cost_usd": 0.044361
+    },
+    {
+      "id": "T04",
+      "name": "search_multi_file_signal",
+      "task": "search provider",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 13108,
+        "completion_tokens": 885,
+        "total_tokens": 13993
+      },
+      "estimated_cost_usd": 0.052599
+    },
+    {
+      "id": "T05",
+      "name": "controlled_write",
+      "task": "write tmp/note.txt with a short status note",
+      "status": "ok",
+      "stop_reason": "write_completed",
+      "metrics": {
+        "turns": 1,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 1,
+        "provider_calls": 1,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.0,
+        "mean_turns_to_completion": 1.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 8376,
+        "completion_tokens": 186,
+        "total_tokens": 8562
+      },
+      "estimated_cost_usd": 0.027918
+    },
+    {
+      "id": "T06",
+      "name": "read_search_verify",
+      "task": "search memory",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 16035,
+        "completion_tokens": 1056,
+        "total_tokens": 17091
+      },
+      "estimated_cost_usd": 0.063945
+    },
+    {
+      "id": "T07",
+      "name": "config_inspection",
+      "task": "read src/hardness/config.py",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 17635,
+        "completion_tokens": 877,
+        "total_tokens": 18512
+      },
+      "estimated_cost_usd": 0.06606
+    },
+    {
+      "id": "T08",
+      "name": "policy_inspection",
+      "task": "read src/hardness/policy.py",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 16334,
+        "completion_tokens": 981,
+        "total_tokens": 17315
+      },
+      "estimated_cost_usd": 0.063717
+    },
+    {
+      "id": "T09",
+      "name": "tool_inventory_check",
+      "task": "read src/hardness/tools.py",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 17558,
+        "completion_tokens": 1748,
+        "total_tokens": 19306
+      },
+      "estimated_cost_usd": 0.078894
+    },
+    {
+      "id": "T10",
+      "name": "agent_loop_inspection",
+      "task": "read src/hardness/agent.py",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 24155,
+        "completion_tokens": 2935,
+        "total_tokens": 27090
+      },
+      "estimated_cost_usd": 0.11649
+    },
+    {
+      "id": "T11",
+      "name": "search_trace_events",
+      "task": "search stop_reason",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 30411,
+        "completion_tokens": 890,
+        "total_tokens": 31301
+      },
+      "estimated_cost_usd": 0.104583
+    },
+    {
+      "id": "T12",
+      "name": "provider_contract_check",
+      "task": "read src/hardness/providers.py",
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0
+      },
+      "error": null,
+      "usage": {
+        "prompt_tokens": 34666,
+        "completion_tokens": 2987,
+        "total_tokens": 37653
+      },
+      "estimated_cost_usd": 0.148803
+    }
+  ],
+  "aggregate": {
+    "completion_rate": 1.0,
+    "mean_turns_per_task": 1.9167,
+    "duplicate_action_rate_avg": 0.0,
+    "redundant_read_rate_avg": 0.0,
+    "final_after_success_rate_avg": 0.9167,
+    "stop_reason_distribution": {
+      "stop": 11,
+      "write_completed": 1
+    },
+    "failure_modes_top": {},
+    "mean_cost_per_task_usd": 0.06707775,
+    "total_estimated_cost_usd": 0.804933,
+    "cost_coverage_tasks": 12
+  }
+}

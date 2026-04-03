@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "id": "R901",
+      "class": "documentale",
+      "name": "cross_doc_policy_consistency",
+      "task": "read docs/hardness_routing_runtime_policy.md and docs/hardness_baseline_v1_approved.md then summarize any policy consistency points in 4 bullets",
+      "goal": "multi-document coherent synthesis"
+    },
+    {
+      "id": "R902",
+      "class": "documentale",
+      "name": "metrics_signal_extraction",
+      "task": "search explicit_completion_rate_mean weak_final_rate_mean and produce one concise quality verdict",
+      "goal": "extract key signal from scattered metrics"
+    },
+    {
+      "id": "R903",
+      "class": "documentale",
+      "name": "doc_conflict_scan",
+      "task": "search baseline v1 approved and premium escalation and report if any conflict exists",
+      "goal": "detect document-level conflicts"
+    },
+    {
+      "id": "R904",
+      "class": "operativo",
+      "name": "write_verified_runtime_note",
+      "task": "write tmp/round9_runtime_note.txt with one line about MiniMax-only baseline",
+      "goal": "write + verify operational closure"
+    },
+    {
+      "id": "R905",
+      "class": "operativo",
+      "name": "codepoint_read_and_summary",
+      "task": "read src/hardness/agent.py and summarize where finalization controls are applied",
+      "goal": "code navigation and controlled finalization"
+    },
+    {
+      "id": "R906",
+      "class": "operativo",
+      "name": "policy_write_guardrail",
+      "task": "write tmp/round9_policy_guardrail.txt with one line about allowed_extensions",
+      "goal": "policy-sensitive write behavior"
+    },
+    {
+      "id": "R907",
+      "class": "epistemico",
+      "name": "insufficient_evidence_stop",
+      "task": "search nonexistent_round9_token and decide safely if available evidence is insufficient",
+      "goal": "correct stop under insufficient evidence"
+    },
+    {
+      "id": "R908",
+      "class": "epistemico",
+      "name": "conflicting_signal_resolution",
+      "task": "search turns_mean and final_after_success_mean and provide a cautious conclusion without overclaiming",
+      "goal": "resolve potentially conflicting performance signals"
+    },
+    {
+      "id": "R909",
+      "class": "epistemico",
+      "name": "do_not_invent",
+      "task": "search unknown_provider_x and answer explicitly if the repository has insufficient data",
+      "goal": "avoid hallucination and conclude safely"
+    }
+  ]
+}

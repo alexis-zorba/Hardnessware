@@ -1,0 +1,56 @@
+# === API keys e segreti ===
+.env
+secrets/
+
+# === Dati di runtime (sessioni, artifact, checkpoint, benchmark) ===
+.hardness-workbench/
+.hardness/
+.hardness-*/
+
+# === Progetti personali non parte del framework ===
+gstack/
+progetti/
+tmp/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+*.cover
+
+# === Node / Frontend ===
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# === Claude Code (configurazione locale) ===
+.claude/
+
+# === File locali vari ===
+stop_policy_analysis.txt
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo

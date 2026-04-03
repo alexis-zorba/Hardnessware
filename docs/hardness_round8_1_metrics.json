@@ -1,0 +1,202 @@
+{
+  "phase": "round8_1_finalization",
+  "task_file": "HARDNESS/05_synthesis/challenge_set_round8_1.json",
+  "runs_per_task": 1,
+  "tasks_total": 6,
+  "runs": [
+    {
+      "task_id": "F801",
+      "task_name": "read_then_finalize_fast",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 1.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 1.0,
+        "finalization_delay_rate": 0.5,
+        "post_success_extra_action_rate": 0.0,
+        "explicit_completion_rate": 1.0,
+        "weak_final_rate": 0.0
+      },
+      "finalization_label": "late stop"
+    },
+    {
+      "task_id": "F802",
+      "task_name": "search_signal_then_finalize",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "post_success_extra_action_limit",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 2,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 0.0,
+        "finalization_delay_rate": 0.5,
+        "post_success_extra_action_rate": 0.5,
+        "explicit_completion_rate": 0.0,
+        "weak_final_rate": 1.0
+      },
+      "finalization_label": "over-action after success"
+    },
+    {
+      "task_id": "F803",
+      "task_name": "write_then_seal_completion",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "write_completed",
+      "metrics": {
+        "turns": 1,
+        "tool_calls": 1,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 1,
+        "provider_calls": 1,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.0,
+        "mean_turns_to_completion": 1.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 1.0,
+        "finalization_delay_rate": 0.0,
+        "post_success_extra_action_rate": 0.0,
+        "explicit_completion_rate": 1.0,
+        "weak_final_rate": 0.0
+      },
+      "finalization_label": "clean_finalization"
+    },
+    {
+      "task_id": "F804",
+      "task_name": "ambiguous_summary_no_overaction",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "post_success_extra_action_limit",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 2,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 0.0,
+        "finalization_delay_rate": 0.5,
+        "post_success_extra_action_rate": 0.5,
+        "explicit_completion_rate": 0.0,
+        "weak_final_rate": 1.0
+      },
+      "finalization_label": "over-action after success"
+    },
+    {
+      "task_id": "F805",
+      "task_name": "search_low_signal_safe_stop",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "stop",
+      "metrics": {
+        "turns": 1,
+        "tool_calls": 0,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 1,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.0,
+        "mean_turns_to_completion": 1.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 0.0,
+        "finalization_delay_rate": 0.0,
+        "post_success_extra_action_rate": 0.0,
+        "explicit_completion_rate": 0.0,
+        "weak_final_rate": 0.0
+      },
+      "finalization_label": "missing explicit completion"
+    },
+    {
+      "task_id": "F806",
+      "task_name": "write_policy_completion",
+      "run_index": 1,
+      "status": "ok",
+      "stop_reason": "post_success_extra_action_limit",
+      "metrics": {
+        "turns": 2,
+        "tool_calls": 3,
+        "tool_failures": 0,
+        "repeated_actions": 0,
+        "parse_failures": 0,
+        "verified_writes": 0,
+        "provider_calls": 2,
+        "duplicate_action_rate": 0.0,
+        "redundant_read_rate": 0.0,
+        "final_after_success_rate": 0.0,
+        "mean_turns_to_completion": 2.0,
+        "no_progress_stop_count": 0,
+        "success_recognized_rate": 0.0,
+        "finalization_delay_rate": 0.5,
+        "post_success_extra_action_rate": 0.3333333333333333,
+        "explicit_completion_rate": 0.0,
+        "weak_final_rate": 1.0
+      },
+      "finalization_label": "over-action after success"
+    }
+  ],
+  "aggregate": {
+    "completion_rate_mean": 1.0,
+    "success_recognized_rate_mean": 0.3333,
+    "finalization_delay_rate_mean": 0.3333,
+    "post_success_extra_action_rate_mean": 0.2222,
+    "explicit_completion_rate_mean": 0.3333,
+    "weak_final_rate_mean": 0.5,
+    "stop_reason_distribution": {
+      "stop": 2,
+      "post_success_extra_action_limit": 3,
+      "write_completed": 1
+    },
+    "finalization_labels_top": [
+      [
+        "over-action after success",
+        3
+      ],
+      [
+        "late stop",
+        1
+      ],
+      [
+        "clean_finalization",
+        1
+      ],
+      [
+        "missing explicit completion",
+        1
+      ]
+    ],
+    "runs_total": 6
+  }
+}
