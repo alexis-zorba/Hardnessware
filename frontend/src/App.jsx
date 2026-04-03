@@ -16,7 +16,8 @@ async function api(path, init) {
 
 export function App() {
   const [sessionId, setSessionId] = useState("");
-  const [task, setTask] = useState("read README.md and summarize HARDNESS baseline");
+  const [workspacePath, setWorkspacePath] = useState(".");
+  const [task, setTask] = useState("read README.md and summarize Hardnessware baseline");
   const [replyText, setReplyText] = useState("");
   const [maxTurns, setMaxTurns] = useState(8);
 
@@ -27,8 +28,7 @@ export function App() {
   const [chatLog, setChatLog] = useState([]);
   const [events, setEvents] = useState([]);
   const [files, setFiles] = useState([]);
-  const [filesPath, setFilesPath] = useState(".");
-  const [diffPath, setDiffPath] = useState("README.md");
+  const [diffPath, setDiffPath] = useState("");
   const [diffText, setDiffText] = useState("");
   const [metrics, setMetrics] = useState({});
   const [finalText, setFinalText] = useState("");
@@ -98,18 +98,30 @@ export function App() {
   async function createSession() {
     setError("");
     setBusy(true);
-    const payload = await api("/session", {
-      method: "POST",
-      body: JSON.stringify({ provider: "openrouter", model: "minimax/minimax-m2.7" }),
-    });
-    setSessionId(payload.session_id);
-    setSessionStatus("idle");
-    setChatLog([]);
-    setEvents([]);
-    setFiles([]);
-    setDiffText("");
-    setFinalText("");
-    setMetrics({});
+    try {
+      const payload = await api("/session", {
+        method: "POST",
+        body: JSON.stringify({
+          provider: "openrouter",
+          model: "minimax/minimax-m2.7",
+          workspace: workspacePath.trim() || ".",
+        }),
+      });
+      setSessionId(payload.session_id);
+      setSessionStatus("idle");
+      setChatLog([]);
+      setEvents([]);
+      setFiles([]);
+      setDiffText("");
+      setDiffPath("");
+      setFinalText("");
+      setMetrics({});
+      // auto-load files for the new session workspace
+      const filePayload = await api(`/session/${payload.session_id}/files?path=.&recursive=false`);
+      setFiles(filePayload.files ?? []);
+    } catch (err) {
+      setError(String(err));
+    }
     setBusy(false);
   }
 
@@ -131,7 +143,7 @@ export function App() {
       setWaitingQuestion(result.waiting_question ?? "");
       setWaitingOptions(Array.isArray(result.waiting_options) ? result.waiting_options : []);
       setChatLog((prev) => [...prev, { role: "assistant", text: result.final_text ?? "", kind: nextStatus }]);
-      const filePayload = await api(`/session/${sessionId}/files?path=${encodeURIComponent(filesPath)}&recursive=false`);
+      const filePayload = await api(`/session/${sessionId}/files?path=.&recursive=false`);
       setFiles(filePayload.files ?? []);
       setBusy(false);
     } catch (err) {
@@ -186,7 +198,7 @@ export function App() {
       setWaitingQuestion(result.waiting_question ?? "");
       setWaitingOptions(Array.isArray(result.waiting_options) ? result.waiting_options : []);
       setChatLog((prev) => [...prev, { role: "assistant", text: result.final_text ?? "", kind: nextStatus }]);
-      const filePayload = await api(`/session/${sessionId}/files?path=${encodeURIComponent(filesPath)}&recursive=false`);
+      const filePayload = await api(`/session/${sessionId}/files?path=.&recursive=false`);
       setFiles(filePayload.files ?? []);
       setBusy(false);
     } catch (err) {
@@ -207,22 +219,23 @@ export function App() {
     }
   }
 
-  async function loadFiles() {
+  async function refreshFiles() {
     if (!hasSession) return;
     setError("");
     try {
-      const filePayload = await api(`/session/${sessionId}/files?path=${encodeURIComponent(filesPath)}&recursive=false`);
+      const filePayload = await api(`/session/${sessionId}/files?path=.&recursive=false`);
       setFiles(filePayload.files ?? []);
     } catch (err) {
       setError(String(err));
     }
   }
 
-  async function loadDiff() {
-    if (!hasSession || !diffPath) return;
+  async function loadDiff(path) {
+    if (!hasSession || !path) return;
     setError("");
+    setDiffPath(path);
     try {
-      const payload = await api(`/session/${sessionId}/diffs?path=${encodeURIComponent(diffPath)}`);
+      const payload = await api(`/session/${sessionId}/diffs?path=${encodeURIComponent(path)}`);
       setDiffText(payload.diff || payload.note || "");
     } catch (err) {
       setError(String(err));
@@ -240,11 +253,11 @@ export function App() {
     <div className="wb-app">
       <header className="wb-header">
         <div>
-          <h1>HARDNESS Workbench</h1>
-          <p className="subtitle">Interactive operator cockpit · inspired by multi-step workflow discipline</p>
+          <h1>Hardnessware Cockpit</h1>
+          <p className="subtitle">Provider-agnostic agent harness ecosystem</p>
         </div>
         <div className="header-controls">
-          <button onClick={createSession}>Create Session</button>
+          <button onClick={createSession} disabled={busy}>New Session</button>
           <button onClick={runTask} disabled={runDisabled}>
             Run
           </button>
@@ -263,6 +276,20 @@ export function App() {
         <div className="left-column">
         <section className="card command-center">
           <h2>Command Center</h2>
+
+          <label className="field-label">Agent workspace</label>
+          {hasSession ? (
+            <div className="workspace-locked">{workspacePath}</div>
+          ) : (
+            <div className="inline-actions">
+              <input
+                value={workspacePath}
+                onChange={(e) => setWorkspacePath(e.target.value)}
+                placeholder="."
+              />
+            </div>
+          )}
+
           <label className="field-label">Task</label>
           <textarea
             value={task}
@@ -292,22 +319,6 @@ export function App() {
               onChange={(e) => setMaxTurns(Math.max(1, Math.min(50, Number(e.target.value))))}
               style={{ width: "72px" }}
             />
-          </div>
-
-          <label className="field-label">Workspace path</label>
-          <div className="inline-actions">
-            <input value={filesPath} onChange={(e) => setFilesPath(e.target.value)} placeholder="." />
-            <button onClick={loadFiles} disabled={!hasSession || busy}>
-              Refresh Files
-            </button>
-          </div>
-
-          <label className="field-label">Diff target</label>
-          <div className="inline-actions">
-            <input value={diffPath} onChange={(e) => setDiffPath(e.target.value)} placeholder="README.md" />
-            <button onClick={loadDiff} disabled={!hasSession || busy}>
-              Load Diff
-            </button>
           </div>
 
           {sessionStatus === "paused" ? (
@@ -384,17 +395,32 @@ export function App() {
               <pre>{JSON.stringify(metrics, null, 2)}</pre>
             </div>
             <div className="inspector-block">
-              <h3>Files</h3>
-              <ul>
+              <div className="inspector-block-header">
+                <h3>Files</h3>
+                <button className="btn-small" onClick={refreshFiles} disabled={!hasSession || busy}>Refresh</button>
+              </div>
+              <ul className="file-list">
                 {files.map((file) => (
-                  <li key={file.path}>{file.path}</li>
+                  <li key={file.path}>
+                    {file.is_dir ? (
+                      <span className="file-dir">{file.path}/</span>
+                    ) : (
+                      <button
+                        className="file-link"
+                        onClick={() => loadDiff(file.path)}
+                        title="Click to view diff"
+                      >
+                        {file.path}
+                      </button>
+                    )}
+                  </li>
                 ))}
               </ul>
               {!files.length && <p>No files loaded.</p>}
             </div>
             <div className="inspector-block">
-              <h3>Diff</h3>
-              <pre>{diffText || "No diff loaded."}</pre>
+              <h3>Diff{diffPath ? ` — ${diffPath}` : ""}</h3>
+              <pre>{diffText || (diffPath ? "No changes since baseline." : "Click a file above to load its diff.")}</pre>
             </div>
           </div>
         </section>

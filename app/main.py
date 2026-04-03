@@ -17,6 +17,7 @@ from app.workbench import WorkbenchService
 class CreateSessionRequest(BaseModel):
     provider: str = Field(default="openrouter")
     model: str = Field(default="minimax/minimax-m2.7")
+    workspace: str = Field(default=".")
 
 
 class RunRequest(BaseModel):
@@ -65,13 +66,21 @@ def health() -> dict[str, str]:
 
 
 @app.post("/session")
-def create_session(request: CreateSessionRequest) -> dict[str, str]:
-    state = _service.create_session(provider=request.provider, model=request.model)
+def create_session(request: CreateSessionRequest) -> dict:
+    try:
+        state = _service.create_session(
+            provider=request.provider,
+            model=request.model,
+            workspace=request.workspace,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     return {
         "session_id": state.session_id,
         "created_at": state.created_at,
         "provider": state.provider,
         "model": state.model,
+        "workspace": str(state.workspace_root),
     }
 
 
@@ -155,8 +164,7 @@ def files(
     recursive: bool = Query(default=False),
 ) -> dict:
     try:
-        _service.get_session(session_id)
-        rows = _service.list_files(path=path, recursive=recursive)
+        rows = _service.list_files(session_id=session_id, path=path, recursive=recursive)
         return {"session_id": session_id, "path": path, "recursive": recursive, "files": rows}
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc

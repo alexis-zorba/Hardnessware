@@ -42,12 +42,15 @@ class WorkbenchService:
         self.api_file = api_file.resolve()
         self.sessions: dict[str, SessionState] = {}
 
-    def create_session(self, provider: str, model: str) -> SessionState:
+    def create_session(self, provider: str, model: str, workspace: str = ".") -> SessionState:
+        workspace_root = Path(workspace).resolve()
+        if not workspace_root.exists():
+            raise ValueError(f"Workspace path does not exist: {workspace}")
         session_id = f"session-{uuid4().hex[:12]}"
         state = SessionState(
             session_id=session_id,
             created_at=datetime.now(UTC).isoformat(),
-            workspace_root=self.workspace_root,
+            workspace_root=workspace_root,
             storage_root=self.storage_base / session_id,
             provider=provider,
             model=model,
@@ -243,9 +246,11 @@ class WorkbenchService:
                 yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
             await asyncio.sleep(0.8)
 
-    def list_files(self, path: str = ".", recursive: bool = False) -> list[dict[str, Any]]:
-        target = (self.workspace_root / path).resolve()
-        if not target.is_relative_to(self.workspace_root):
+    def list_files(self, session_id: str, path: str = ".", recursive: bool = False) -> list[dict[str, Any]]:
+        state = self.get_session(session_id)
+        workspace_root = state.workspace_root
+        target = (workspace_root / path).resolve()
+        if not target.is_relative_to(workspace_root):
             raise ValueError("Requested path is outside workspace root")
         if not target.exists():
             raise FileNotFoundError(f"Path not found: {path}")
@@ -255,7 +260,7 @@ class WorkbenchService:
         for item in sorted(iterator):
             results.append(
                 {
-                    "path": str(item.relative_to(self.workspace_root)).replace("\\", "/"),
+                    "path": str(item.relative_to(workspace_root)).replace("\\", "/"),
                     "name": item.name,
                     "is_dir": item.is_dir(),
                 }
@@ -264,13 +269,14 @@ class WorkbenchService:
 
     def get_diff(self, session_id: str, path: str) -> dict[str, Any]:
         state = self.get_session(session_id)
-        target = (self.workspace_root / path).resolve()
-        if not target.is_relative_to(self.workspace_root):
+        workspace_root = state.workspace_root
+        target = (workspace_root / path).resolve()
+        if not target.is_relative_to(workspace_root):
             raise ValueError("Requested path is outside workspace root")
         if not target.exists() or not target.is_file():
             raise FileNotFoundError(f"File not found: {path}")
 
-        normalized = str(target.relative_to(self.workspace_root)).replace("\\", "/")
+        normalized = str(target.relative_to(workspace_root)).replace("\\", "/")
         current_text = target.read_text(encoding="utf-8")
         baseline = state.baseline_files.get(normalized)
         if baseline is None:
